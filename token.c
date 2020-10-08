@@ -3,10 +3,10 @@
 #include<stdlib.h>
 #include<string.h>
 
-char token[1000];//Ò»¸ö×Ö·û´® 
-char ch;//µ±Ç°¶ÁÈëµÄ×Ö·û 
+char token[1000];//ä¸€ä¸ªå­—ç¬¦ä¸² 
+char ch;//å½“å‰è¯»å…¥çš„å­—ç¬¦ 
 
-int is_letter(char a){//ÊÇ×ÖÄ¸ 
+int is_letter(char a){//æ˜¯å­—æ¯ 
 	if((a>='a')&&(a<='z')){
 		return 1;
 	}
@@ -15,7 +15,7 @@ int is_letter(char a){//ÊÇ×ÖÄ¸
 	}
 	return 0;
 }
-int is_digit(char a){//ÊÇÊý×Ö 
+int is_digit(char a){//æ˜¯æ•°å­— 
 	if((a>='0')&&a<='9'){
 		return 1;
 	}
@@ -24,7 +24,7 @@ int is_digit(char a){//ÊÇÊý×Ö
 	}
 	
 }
-int reserve(char *a){//ÅÐ¶ÏtokenÖÐµÄ×Ö·û´®ÊÇ±£Áô×Ö»¹ÊÇ±êÊ¶·û 
+int reserve(char *a){//åˆ¤æ–­tokenä¸­çš„å­—ç¬¦ä¸²æ˜¯ä¿ç•™å­—è¿˜æ˜¯æ ‡è¯†ç¬¦ 
 	if(strcmp(a, "BEGIN")==0||strcmp(a, "END")==0||strcmp(a, "FOR")==0||strcmp(a, "IF")==0||strcmp(a, "THEN")==0||strcmp(a, "ELSE")==0){
 		return 1;
 	}
@@ -50,7 +50,7 @@ void show(char *a){
 		printf("Else\n");
 	}
 }
-int a_to_i(char *a){//×Ö·û´®×ª»¯ÎªÊý×Ö 
+int a_to_i(char *a){//å­—ç¬¦ä¸²è½¬åŒ–ä¸ºæ•°å­— 
 	return atoi(a);
 }
 
@@ -71,7 +71,7 @@ int main(int argc, char* argv[]){
 	while((ch=fgetc(file))!=EOF){
 //		printf("%c",ch);
 
-		token[0]='\0';//ÖÃtokenÎª¿Õ´® 
+		token[0]='\0';//ç½®tokenä¸ºç©ºä¸² 
 //		printf("%d", sizeof(token));
 		while(ch==' '||ch=='\n'||ch=='\t'||ch=='\r'){
 			ch=fgetc(file);
@@ -132,7 +132,7 @@ int main(int argc, char* argv[]){
 					fseek(file, -1, SEEK_CUR);
 				}
 				
-				printf("Assign\n");
+				printf("Colon\n");
 			}
 		}
 //		else if(ch=='/'){
