@@ -151,7 +151,11 @@ int main(int argc, char* argv[]){
 //			}
 //		}
 		else{
-			//printf("Unknown\n");
+			if(ch==EOF){
+				fclose(file);
+				return 0;
+			}
+			printf("Unknown\n");
 			fclose(file);
 			return 0;
 		}
